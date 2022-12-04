@@ -1,0 +1,25 @@
+def typeListChange(input_list) :
+    
+    fixedlist =[]
+    for i in input_list:
+        fixedlist.append(float(i))
+    return fixedlist
+
+def typeListChangeStrToFloat(inputlist):
+    
+    i = 0 
+    if type(inputlist[i]) == str:
+        while i <= (len(inputlist)-1) :
+            changebefore= inputlist[i]
+            if changebefore[-1] == 'B':
+                changeafter = float(changebefore[:-1])*1000000000
+                inputlist[i] = changeafter 
+            elif changebefore[-1] == '%':
+                changeafter = float(changebefore[:-1])
+                inputlist[i] = changeafter 
+            else :
+                return typeListChange(inputlist)
+            i += 1
+        return inputlist
+    else :
+        return typeListChange(inputlist)
